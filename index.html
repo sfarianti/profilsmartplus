@@ -850,19 +850,19 @@
   <script src="assets/js/main.js"></script>
   <script>
 document.querySelector('.php-email-form').addEventListener('submit', async function (e) {
-  e.preventDefault();
+  e.preventDefault(); // Mencegah reload halaman
 
   const form = e.target;
+  const formData = new FormData(form);
+
+  // Tampilkan status
   const loading = form.querySelector('.loading');
   const error = form.querySelector('.error-message');
   const success = form.querySelector('.sent-message');
 
-  // Tampilkan loading
   loading.style.display = 'block';
   error.style.display = 'none';
   success.style.display = 'none';
-
-  const formData = new FormData(form);
 
   try {
     const response = await fetch(form.action, {
@@ -880,21 +880,16 @@ document.querySelector('.php-email-form').addEventListener('submit', async funct
       form.reset();
     } else {
       const data = await response.json();
-      if (data.errors) {
-        error.textContent = data.errors.map(err => err.message).join(', ');
-      } else {
-        error.textContent = 'Oops! Something went wrong.';
-      }
+      error.textContent = data.errors ? data.errors.map(e => e.message).join(', ') : 'Submission failed';
       error.style.display = 'block';
     }
   } catch (err) {
     loading.style.display = 'none';
-    error.textContent = 'Oops! There was a problem submitting your form.';
+    error.textContent = 'Network error. Please try again.';
     error.style.display = 'block';
   }
 });
 </script>
-
 
 </body>
 
