@@ -716,7 +716,7 @@
           </div>
 
           <div class="col-lg-7">
-          <form id="contact-form" action="https://formspree.io/f/xblowyjq" method="POST" class="php-email-form">
+          <form id="my-form" action="https://formspree.io/f/xblowyjq" method="POST" class="php-email-form">
   <div class="row gy-4">
     <div class="col-md-6">
       <label for="name-field" class="pb-2">Your Name</label>
@@ -848,52 +848,41 @@
 
   <!-- Main JS File -->
   <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const form = document.getElementById("contact-form");
-    const loading = form.querySelector(".loading");
-    const error = form.querySelector(".error-message");
-    const success = form.querySelector(".sent-message");
+  var form = document.getElementById("my-form");
 
-    loading.style.display = "none";
-    error.style.display = "none";
-    success.style.display = "none";
+  async function handleSubmit(event) {
+    event.preventDefault();
+    var status = document.getElementById("my-form-status");
+    var data = new FormData(event.target);
 
-    form.addEventListener("submit", async function (e) {
-      e.preventDefault(); // 🛑 Cegah redirect
-      loading.style.display = "block";
-      error.style.display = "none";
-      success.style.display = "none";
+    status.innerHTML = "Sending...";
 
-      const formData = new FormData(form);
-
-      try {
-        const response = await fetch(form.action, {
-          method: "POST",
-          headers: {
-            "Accept": "application/json"
-          },
-          body: formData
-        });
-
-        loading.style.display = "none";
-
-        if (response.ok) {
-          success.style.display = "block";
-          form.reset();
-        } else {
-          const data = await response.json();
-          error.textContent = data.errors ? data.errors.map(err => err.message).join(", ") : "Submission failed";
-          error.style.display = "block";
-        }
-      } catch (err) {
-        loading.style.display = "none";
-        error.textContent = "Network error. Please try again.";
-        error.style.display = "block";
+    fetch(event.target.action, {
+      method: form.method,
+      body: data,
+      headers: {
+        'Accept': 'application/json'
       }
+    }).then(response => {
+      if (response.ok) {
+        status.innerHTML = "✅ Pesan berhasil dikirim!";
+        form.reset();
+      } else {
+        response.json().then(data => {
+          if (Object.hasOwn(data, 'errors')) {
+            status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
+          } else {
+            status.innerHTML = "❌ Terjadi kesalahan saat mengirim pesan.";
+          }
+        });
+      }
+    }).catch(error => {
+      status.innerHTML = "❌ Terjadi kesalahan saat mengirim pesan.";
     });
-  });
-</script>
+  }
 
+  form.addEventListener("submit", handleSubmit);
+</script>
   <script src="assets/js/main.js"></script>
 </body>
 
