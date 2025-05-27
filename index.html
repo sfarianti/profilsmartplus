@@ -26,14 +26,6 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: eNno
-  * Template URL: https://bootstrapmade.com/enno-free-simple-bootstrap-template/
-  * Updated: Aug 07 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body class="index-page">
@@ -280,12 +272,12 @@
         }
       </style>
       
-      <div class="program-container">
+      <!-- <div class="program-container">
         <div class="program-card">
           <div class="program-title">PROGRAM AKADEMIK</div>
           <div class="program-list">
-            <a href="service-details.html">Numerik dan Logika</a>
-            <a href="service-details.html">Kecerdasan Berbahasa</a>
+            <a href="program/numerik_logika.html">Numerik dan Logika</a>
+            <a href="program/numerik_logika.html">Kecerdasan Berbahasa</a>
             <a href="service-details.html">Bimbingan Belajar</a>
             <a href="service-details.html">Tes SPMB/ PKKMB</a>
             <a href="service-details.html">Kurikulum Internasional</a>
@@ -303,9 +295,417 @@
             <a href="service-details.html">Spiritual</a>
           </div>
         </div>
-      </div>
-      
-      
+      </div> -->
+
+    <style>
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 3em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .program-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .program-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .program-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+        }
+
+        .program-title {
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+            padding: 20px;
+            font-size: 1.4em;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .program-title:hover {
+            background: linear-gradient(135deg, #45a049, #4CAF50);
+        }
+
+        .program-item {
+            border-bottom: 1px solid #eee;
+            transition: all 0.3s ease;
+        }
+
+        .program-item:last-child {
+            border-bottom: none;
+        }
+
+        .program-header {
+            padding: 15px 20px;
+            background: #f8f9fa;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s ease;
+        }
+
+        .program-header:hover {
+            background: #e9ecef;
+        }
+
+        .program-header.active {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .program-name {
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+
+        .dropdown-icon {
+            transition: transform 0.3s ease;
+            font-size: 1em;
+            color: #666;
+        }
+
+        .dropdown-icon.active {
+            transform: rotate(45deg);
+        }
+
+        .program-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            background: white;
+        }
+
+        .program-details.active {
+            max-height: 1000px;
+            padding: 20px;
+        }
+
+        .course-item {
+            margin-bottom: 15px;
+            padding: 12px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #4CAF50;
+        }
+
+        .course-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .course-title {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+
+        .course-description {
+            color: #6c757d;
+            font-size: 0.9em;
+            line-height: 1.4;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
+        }
+
+        .emoji {
+            font-size: 1.2em;
+            margin-right: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .program-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .program-name {
+                font-size: 1em;
+            }
+        }
+    </style>
+
+    <div class="program-container">
+        <!-- Program Akademik -->
+        <div class="program-card">
+            <div class="program-title">📚 PROGRAM AKADEMIK</div>
+            
+            <div class="program-item">
+                <div class="program-header" onclick="toggleDropdown('numerik-logika')">
+                    <span class="program-name">🧮 Numerik dan Logika</span>
+                    <span class="dropdown-icon">+</span>
+                </div>
+                <div class="program-details" id="numerik-logika">
+                    <div class="course-item">
+                        <div class="course-title">🎯 SEMPOA</div>
+                        <div class="course-description">Teknik perhitungan cepat menggunakan sempoa untuk meningkatkan kemampuan matematika dasar</div>
+                    </div>
+                    <div class="course-item">
+                        <div class="course-title">🗣️ Calistung + Bahasa Inggris, Phonic</div>
+                        <div class="course-description">Program dasar membaca, menulis, berhitung dengan bonus pembelajaran bahasa Inggris dan phonics (PG, TK)</div>
+                    </div>
+                    <div class="course-item">
+                        <div class="course-title">📖 Catur</div>
+                        <div class="course-description">Permainan strategi untuk mengembangkan logika, konsentrasi, dan kemampuan berpikir sistematis</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="program-item">
+                <div class="program-header" onclick="toggleDropdown('kecerdasan-berbahasa')">
+                    <span class="program-name">🗣️ Kecerdasan Berbahasa</span>
+                    <span class="dropdown-icon">+</span>
+                </div>
+                <div class="program-details" id="kecerdasan-berbahasa">
+                    <div class="course-item">
+                        <div class="course-title">🌍 Bahasa Multikultural</div>
+                        <div class="course-description">🇸🇦🇨🇳🇺🇸🇯🇵🇫🇷🇰🇷🇩🇪🇮🇩 (Arab, Mandarin, Inggris, Jepang, Perancis, Korea, Jerman, Indonesia, dll)</div>
+                    </div>
+                    <div class="course-item">
+                        <div class="course-title">🧠 Pengembangan Logika</div>
+                        <div class="course-description">Belajar bahasa sambil mengembangkan kemampuan berpikir logis dan kritis</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="program-item">
+                <div class="program-header" onclick="toggleDropdown('bimbingan-belajar')">
+                    <span class="program-name">📝 Bimbingan Belajar</span>
+                    <span class="dropdown-icon">+</span>
+                </div>
+                <div class="program-details" id="bimbingan-belajar">
+                    <div class="course-item">
+                        <div class="course-title">🎓 Semua Mata Pelajaran Inggris (SD)</div>
+                        <div class="course-description">Bimbingan komprehensif untuk siswa sekolah dasar</div>
+                    </div>
+                    <div class="course-item">
+                        <div class="course-title">📊 Matematika (SMP & SMA IPA)</div>
+                        <div class="course-description">Fokus pada penguasaan konsep matematika tingkat menengah</div>
+                    </div>
+                    <div class="course-item">
+                        <div class="course-title">📈 Mat+Akun+ekonomi (SMA IPS)</div>
+                        <div class="course-description">Paket lengkap untuk jurusan IPS</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="program-item">
+                <div class="program-header" onclick="toggleDropdown('tes-masuk')">
+                    <span class="program-name">🎯 Tes SPMB/ PKKMB</span>
+                    <span class="dropdown-icon">+</span>
+                </div>
+                <div class="program-details" id="tes-masuk">
+                    <div class="course-item">
+                        <div class="course-title">🏫 Persiapan Masuk Sekolah Favorit</div>
+                        <div class="course-description">Tes Masuk Sekolah favorit/Perguruan Tinggi, Olimpiade, UNAS</div>
+                    </div>
+                    <div class="course-item">
+                        <div class="course-title">📚 Tes Kemampuan Akademik</div>
+                        <div class="course-description">Persiapan lengkap untuk berbagai tes masuk perguruan tinggi</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="program-item">
+                <div class="program-header" onclick="toggleDropdown('kurikulum-internasional')">
+                    <span class="program-name">🌐 Kurikulum Internasional</span>
+                    <span class="dropdown-icon">+</span>
+                </div>
+                <div class="program-details" id="kurikulum-internasional">
+                    <div class="course-item">
+                        <div class="course-title">🇬🇧 Cambridge (IGCSE O level A level)</div>
+                        <div class="course-description">Program internasional dengan standar Cambridge</div>
+                    </div>
+                    <div class="course-item">
+                        <div class="course-title">📖 Materi IBD (Standart level, high level)</div>
+                        <div class="course-description">International Baccalaureate Diploma Programme</div>
+                    </div>
+                    <div class="course-item">
+                        <div class="course-title">🧮 Kalkulus/mikro makro, akuntansi</div>
+                        <div class="course-description">Mata kuliah tingkat universitas</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Program Non-Akademik -->
+        <div class="program-card">
+            <div class="program-title">🎨 PROGRAM NON-AKADEMIK</div>
+            
+            <div class="program-item highlight">
+                <div class="program-header" onclick="toggleDropdown('visual-spasial')">
+                    <span class="program-name">🎨 Visual dan Spasial</span>
+                    <span class="dropdown-icon">+</span>
+                </div>
+                <div class="program-details" id="visual-spasial">
+                    <div class="course-item">
+                        <div class="course-title">🖥️ Design Graphic</div>
+                        <div class="course-description">Photoshop, CorelDraw, Illustrator, Flash, dsb</div>
+                    </div>
+                    <div class="course-item">
+                        <div class="course-title">👕 Menjahit dan Desain Baju</div>
+                        <div class="course-description">Untuk Aksesoris, garment manufacturing, preparing fashion school, for skill</div>
+                    </div>
+                    <div class="course-item">
+                        <div class="course-title">🎭 Kelas Menggambar "MANUAL"</div>
+                        <div class="course-description">Belajar dasar menggambar dan mewarnai sesuai dengan kategori yang dipilih:<br>
+                        1. Manga<br>2. Komik<br>3. Lukis<br>4. Perspektif<br>5. Karikatur<br>6. Mewarnai dengan crayon, pensil warna dan watercolor maupun Mix media</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="program-item">
+                <div class="program-header" onclick="toggleDropdown('intelligence-physical')">
+                    <span class="program-name">🏃 Intelligence of Physical</span>
+                    <span class="dropdown-icon">+</span>
+                </div>
+                <div class="program-details" id="intelligence-physical">
+                    <div class="course-item">
+                        <div class="course-title">⚽ Olahraga dan Beladiri</div>
+                        <div class="course-description">🏀🏐⚽ (yoga, pilates, renang, fitness, basket, voli, badminton, futsal, pingpong, tenis, senam, taekwondo, wushu, karate, kungfu+taichi, jujitsu, dll)</div>
+                    </div>
+                    <div class="course-item">
+                        <div class="course-title">💃 Dance</div>
+                        <div class="course-description">Hiphop, belly dance, dansa, modern dance, ballet, tari tradisional, dsb</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="program-item">
+                <div class="program-header" onclick="toggleDropdown('kecerdasan-bermusik')">
+                    <span class="program-name">🎵 Kecerdasan Bermusik</span>
+                    <span class="dropdown-icon">+</span>
+                </div>
+                <div class="program-details" id="kecerdasan-bermusik">
+                    <div class="course-item">
+                        <div class="course-title">🎶 Musik</div>
+                        <div class="course-description">Vokal, Gitar, piano, pianika, kecapi/guzheng, keyboard, organ, biola, drum, bass, saxophone, recorder</div>
+                    </div>
+                    <div class="course-item">
+                        <div class="course-title">🎤 Intelligence of Musical</div>
+                        <div class="course-description">Pengembangan bakat bermusik secara menyeluruh</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="program-item">
+                <div class="program-header" onclick="toggleDropdown('pemrograman')">
+                    <span class="program-name">💻 Pemrograman</span>
+                    <span class="dropdown-icon">+</span>
+                </div>
+                <div class="program-details" id="pemrograman">
+                    <div class="course-item">
+                        <div class="course-title">🖥️ Teknologi Digital</div>
+                        <div class="course-description">Teknologi digital sangat mempengaruhi kehidupan manusia saat ini. Jangan sampai kita gaptek terhadap perkembangannya.</div>
+                    </div>
+                    <div class="course-item">
+                        <div class="course-title">⌨️ Bahasa Pemrograman</div>
+                        <div class="course-description">Visual Basic, VB.NET, Pascal, Delphi, C++, C#, Java, PHP dan MySQL, HTML, CMS, CSS, dsb</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="program-item">
+                <div class="program-header" onclick="toggleDropdown('terapi-abk')">
+                    <span class="program-name">🤗 Terapi ABK</span>
+                    <span class="dropdown-icon">+</span>
+                </div>
+                <div class="program-details" id="terapi-abk">
+                    <div class="course-item">
+                        <div class="course-title">👶 Anak Berkebutuhan Khusus</div>
+                        <div class="course-description">😊😊😊 Down syndrome, Autis, ADHD, Okupasi, ADD, Disleksia, Speech Delay, asperger, dll</div>
+                    </div>
+                    <div class="course-item">
+                        <div class="course-title">👨‍🏫 Les Privat & Baca Tulis</div>
+                        <div class="course-description">Mulai anak-anak sampai orang tua dengan pendekatan khusus</div>
+                    </div>
+                    <div class="course-item">
+                        <div class="course-title">🗺️ Mapel</div>
+                        <div class="course-description">Guru terbaik sesuai kebutuhan anak Anda untuk bidang akademis</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="program-item">
+                <div class="program-header" onclick="toggleDropdown('spiritual')">
+                    <span class="program-name">🙏 Spiritual</span>
+                    <span class="dropdown-icon">+</span>
+                </div>
+                <div class="program-details" id="spiritual">
+                    <div class="course-item">
+                        <div class="course-title">📿 Pengembangan Karakter</div>
+                        <div class="course-description">Agama katolik, kristen, al quran+ngaji, TOEFL, IELTS, TOEIC, SAT</div>
+                    </div>
+                    <div class="course-item">
+                        <div class="course-title">🌟 Kecerdasan Spiritual</div>
+                        <div class="course-description">Pengembangan nilai-nilai moral dan spiritual untuk kehidupan yang bermakna</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleDropdown(id) {
+            const details = document.getElementById(id);
+            const header = details.previousElementSibling;
+            const icon = header.querySelector('.dropdown-icon');
+            
+            // Close all other dropdowns
+            document.querySelectorAll('.program-details').forEach(detail => {
+                if (detail.id !== id) {
+                    detail.classList.remove('active');
+                    detail.previousElementSibling.classList.remove('active');
+                    detail.previousElementSibling.querySelector('.dropdown-icon').classList.remove('active');
+                }
+            });
+            
+            // Toggle current dropdown
+            details.classList.toggle('active');
+            header.classList.toggle('active');
+            icon.classList.toggle('active');
+        }
+
+        // Add smooth scroll behavior
+        document.querySelectorAll('.program-header').forEach(header => {
+            header.addEventListener('click', function() {
+                setTimeout(() => {
+                    this.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }, 200);
+            });
+        });
+    </script>
 
     </section><!-- /Services Section -->
 
@@ -340,12 +740,12 @@
           <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <img src="assets/img/portfolio/app-1.jpg" class="img-fluid" alt="">
+              <img src="assets/img/portfolio/app-1.jpeg" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>App 1</h4>
-                <p>Lorem ipsum, dolor sit amet consectetur</p>
-                <a href="assets/img/portfolio/app-1.jpg" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                <h4>Kak Adji</h4>
+                <p>Tentor SMART PLUS</p>
+                <a href="assets/img/portfolio/app-1.jpeg" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <!-- <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a> -->
               </div>
             </div><!-- End Portfolio Item -->
 
@@ -355,11 +755,11 @@
                 <h4>Ruben</h4>
                 <p>Medali Perunggu Kompetisi Sains dan Matematika Surabaya, 2024</p>
                 <a href="assets/img/portfolio/video_prestasi_ruben.mp4" title="Prestasi Siswa" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                <!-- <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a> -->
               </div>
             </div><!-- End Portfolio Item -->
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+            <!-- <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
               <img src="assets/img/portfolio/branding-1.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>Branding 1</h4>
@@ -367,9 +767,9 @@
                 <a href="assets/img/portfolio/branding-1.jpg" title="Branding 1" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                 <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
               </div>
-            </div><!-- End Portfolio Item -->
+            </div> End Portfolio Item  -->
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
+            <!-- <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
               <img src="assets/img/portfolio/books-1.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>Books 1</h4>
@@ -377,9 +777,9 @@
                 <a href="assets/img/portfolio/books-1.jpg" title="Branding 1" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                 <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
               </div>
-            </div><!-- End Portfolio Item -->
+            </div> End Portfolio Item  -->
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+            <!-- <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
               <img src="assets/img/portfolio/app-2.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>App 2</h4>
@@ -387,9 +787,9 @@
                 <a href="assets/img/portfolio/app-2.jpg" title="App 2" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                 <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
               </div>
-            </div><!-- End Portfolio Item -->
+            </div> End Portfolio Item  -->
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
+            <!-- <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
               <img src="assets/img/portfolio/product-2.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>Product 2</h4>
@@ -397,9 +797,9 @@
                 <a href="assets/img/portfolio/product-2.jpg" title="Product 2" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                 <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
               </div>
-            </div><!-- End Portfolio Item -->
+            </div> End Portfolio Item  -->
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+            <!-- <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
               <img src="assets/img/portfolio/branding-2.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>Branding 2</h4>
@@ -407,9 +807,9 @@
                 <a href="assets/img/portfolio/branding-2.jpg" title="Branding 2" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                 <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
               </div>
-            </div><!-- End Portfolio Item -->
+            </div> End Portfolio Item  -->
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
+            <!-- <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
               <img src="assets/img/portfolio/books-2.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>Books 2</h4>
@@ -417,9 +817,9 @@
                 <a href="assets/img/portfolio/books-2.jpg" title="Branding 2" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                 <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
               </div>
-            </div><!-- End Portfolio Item -->
+            </div> End Portfolio Item  -->
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+            <!-- <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
               <img src="assets/img/portfolio/app-3.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>App 3</h4>
@@ -427,9 +827,9 @@
                 <a href="assets/img/portfolio/app-3.jpg" title="App 3" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                 <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
               </div>
-            </div><!-- End Portfolio Item -->
+            </div> End Portfolio Item  -->
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
+            <!-- <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
               <img src="assets/img/portfolio/product-3.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>Product 3</h4>
@@ -437,9 +837,9 @@
                 <a href="assets/img/portfolio/product-3.jpg" title="Product 3" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                 <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
               </div>
-            </div><!-- End Portfolio Item -->
+            </div> End Portfolio Item  -->
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+            <!-- <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
               <img src="assets/img/portfolio/branding-3.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>Branding 3</h4>
@@ -447,9 +847,9 @@
                 <a href="assets/img/portfolio/branding-3.jpg" title="Branding 2" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                 <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
               </div>
-            </div><!-- End Portfolio Item -->
+            </div> End Portfolio Item  -->
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
+            <!-- <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
               <img src="assets/img/portfolio/books-3.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>Books 3</h4>
@@ -457,7 +857,7 @@
                 <a href="assets/img/portfolio/books-3.jpg" title="Branding 3" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                 <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
               </div>
-            </div><!-- End Portfolio Item -->
+            </div> End Portfolio Item  -->
 
           </div><!-- End Portfolio Container -->
 
@@ -711,44 +1111,67 @@
                 </div>
               </div><!-- End Info Item -->
 
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.179795310853!2d112.69773447500039!3d-7.333694892674711!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fcbc8f2df2cf%3A0xa4dcb2c0dd39057f!2sGriya%20Kebraon%2C%20Kebraon%2C%20Kec.%20Karangpilang%2C%20Surabaya%2C%20Jawa%20Timur%2060222!5e0!3m2!1sid!2sid!4v1747400118258!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.179795310853!2d112.69773447500039!3d-7.333694892674711!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fcbc8f2df2cf%3A0xa4dcb2c0dd39057f!2sGriya%20Kebraon%2C%20Kebraon%2C%20Kec.%20Karangpilang%2C%20Surabaya%2C%20Jawa%20Timur%2060222!5e0!3m2!1sid!2sid!4v1747400118258!5m2!1sid!2sid" width="400" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
           </div>
 
           <div class="col-lg-7">
-            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
-              <div class="row gy-4">
-
-                <div class="col-md-6">
-                  <label for="name-field" class="pb-2">Your Name</label>
-                  <input type="text" name="name" id="name-field" class="form-control" required="">
-                </div>
-
-                <div class="col-md-6">
-                  <label for="email-field" class="pb-2">Your Email</label>
-                  <input type="email" class="form-control" name="email" id="email-field" required="">
-                </div>
-
-                <div class="col-md-12">
-                  <label for="subject-field" class="pb-2">Subject</label>
-                  <input type="text" class="form-control" name="subject" id="subject-field" required="">
-                </div>
-
-                <div class="col-md-12">
-                  <label for="message-field" class="pb-2">Message</label>
-                  <textarea class="form-control" name="message" rows="10" id="message-field" required=""></textarea>
-                </div>
-
-                <div class="col-md-12 text-center">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                  <button type="submit">Send Message</button>
-                </div>
-
+          <form id="my-form" action="https://formspree.io/f/xblowyjq" method="POST">
+            <div class="row gy-4">
+              <div class="col-md-6">
+                <label for="name-field" class="pb-2">Your Name</label>
+                <input type="text" name="name" id="name-field" class="form-control" required>
               </div>
-            </form>
+              <div class="col-md-6">
+                <label for="email-field" class="pb-2">Your Email</label>
+                <input type="email" class="form-control" name="email" id="email-field" required>
+              </div>
+              <div class="col-md-12">
+                <label for="subject-field" class="pb-2">Subject</label>
+                <input type="text" class="form-control" name="subject" id="subject-field" required>
+              </div>
+              <div class="col-md-12">
+                <label for="message-field" class="pb-2">Message</label>
+                <textarea class="form-control" name="message" rows="10" id="message-field" required></textarea>
+              </div>
+              <div class="col-md-12 text-center">
+                <div class="loading" style="display:none;">Loading</div>
+                <div class="error-message" style="display:none; color:red;"></div>
+                <div class="sent-message" style="display:none; color:green;">Your message has been sent. Thank you!</div>
+               <button class="btn btn-success" type="submit">Send Message</button>
+              </div>
+            </div>
+          </form>
+          <script>
+  document.getElementById("my-form").addEventListener("submit", function (e) {
+    e.preventDefault(); // Mencegah reload
+    const form = this;
+
+    // Kirim data ke Formspree
+    fetch(form.action, {
+      method: "POST",
+      body: new FormData(form),
+      headers: {
+        'Accept': 'application/json'
+      }
+    }).then(response => {
+      if (response.ok) {
+        form.reset(); // Bersihkan input form
+        document.querySelector(".sent-message").style.display = "block";
+        document.querySelector(".error-message").style.display = "none";
+      } else {
+        return response.json().then(data => {
+          throw new Error(data.error || "Form submission failed");
+        });
+      }
+    }).catch(error => {
+      document.querySelector(".error-message").textContent = error.message;
+      document.querySelector(".error-message").style.display = "block";
+      document.querySelector(".sent-message").style.display = "none";
+    });
+  });
+</script>
+
           </div><!-- End Contact Form -->
 
         </div>
@@ -801,16 +1224,6 @@
           </ul>
         </div>
 
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Our Services</h4>
-          <ul>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Web Design</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Web Development</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Product Management</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Marketing</a></li>
-          </ul>
-        </div>
-
         <div class="col-lg-4 col-md-12">
           <h4>Ikuti Kami</h4>
           <p>Terhubung dengan kami di media sosial untuk info terbaru, tips belajar, dan inspirasi pendidikan setiap hari.</p>
@@ -825,7 +1238,7 @@
     </div>
 
     <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">eNno</strong> <span>All Rights Reserved</span></p>
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">SMART PLUS</strong> <span>All Rights Reserved</span></p>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
         <!-- You can delete the links only if you've purchased the pro version. -->
